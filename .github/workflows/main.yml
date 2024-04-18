@@ -19,11 +19,11 @@ jobs:
           fetch-depth: 0
       - name: add remote 
         env:
-          HF: ${{secrects.HG}}
+          HF: ${{secrects.HF}}
         run: git remote add space https://huggingface.co/spaces/harishkumarshivaramappa/hugging-face-demo
       - name: push to hub 
         env:
-          HF: ${{secrects.HG}}
+          HF: ${{secrects.HF}}
         run: git push --force https://huggingface.co/spaces/harishkumarshivaramappa/hugging-face-demo
           
           
