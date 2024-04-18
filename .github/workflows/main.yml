@@ -17,7 +17,7 @@ jobs:
       - uses: actions/checkout@v2 
         with:
           fetch-depth: 0
-      - name: add remote 
+      - name: add remote link
         env:
           HF: ${{secrets.HF}}
         run: git remote add space https://harishkumarshivaramappa:$HF@huggingface.co/spaces/harishkumarshivaramappa/hugging-face-demo
