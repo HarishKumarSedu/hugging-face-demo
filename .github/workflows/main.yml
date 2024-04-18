@@ -1,29 +1,23 @@
-# this is the basic workflow
-
-name: CI 
-
+name: Sync to Hugging Face hub
 on:
   push:
     branches: [main]
-  pull_request:
-    branches: [main]
 
+  # to run this workflow manually from the Actions tab
   workflow_dispatch:
 
 jobs:
   sync-to-hub:
-    runs-on: ubuntu-latest 
+    runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2 
+      - uses: actions/checkout@v2
         with:
           fetch-depth: 0
-      - name: add remote link
+      - name: Add remote 
         env:
-          HF: ${{secrets.HF}}
+          HF: ${{ secrets.HF }}
         run: git remote add space https://harishkumarshivaramappa:$HF@huggingface.co/spaces/harishkumarshivaramappa/demo
-      - name: push to hub 
+      - name: Push to hub
         env:
-          HF: ${{secrets.HF}}
+          HF: ${{ secrets.HF }}
         run: git push --force https://harishkumarshivaramappa:$HF@huggingface.co/spaces/harishkumarshivaramappa/demo main
-          
-          
