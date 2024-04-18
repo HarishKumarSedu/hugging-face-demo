@@ -20,10 +20,10 @@ jobs:
       - name: add remote 
         env:
           HF: ${{secrets.HF}}
-        run: git remote add space https://huggingface.co/spaces/harishkumarshivaramappa/hugging-face-demo
+        run: git remote add space https://harishkumarshivaramappa:$HF@huggingface.co/spaces/harishkumarshivaramappa/hugging-face-demo
       - name: push to hub 
         env:
           HF: ${{secrets.HF}}
-        run: git push --force https://huggingface.co/spaces/harishkumarshivaramappa/hugging-face-demo
+        run: git push --force https://harishkumarshivaramappa:$HF@huggingface.co/spaces/harishkumarshivaramappa/hugging-face-demo
           
           
