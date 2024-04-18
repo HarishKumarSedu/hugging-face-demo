@@ -1,0 +1,29 @@
+# this is the basic workflow
+
+name: CI 
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+  workflow_dispatch:
+
+jobs:
+  sync-to-hub:
+    runs-on: ubuntu-latest 
+    steps:
+      - uses: actions/checkout@v2 
+        with:
+          fetch-depth: 0
+      - name: add remote 
+        env:
+          HF: ${{secrects.HG}}
+        run: git remote add space https://huggingface.co/spaces/harishkumarshivaramappa/hugging-face-demo
+      - name: push to hub 
+        env:
+          HF: ${{secrects.HG}}
+        run: git push --force https://huggingface.co/spaces/harishkumarshivaramappa/hugging-face-demo
+          
+          
